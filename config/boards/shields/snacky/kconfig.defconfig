@@ -1,0 +1,4 @@
+if SNACKY
+config ZMK_KEYBOARD_NAME
+    default "Snacky Keyboard"
+endif
