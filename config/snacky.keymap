@@ -7,8 +7,20 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            // 一般的な60%キーボード相当(5行 x (6+6)列 = 60キー)の仮キーマップ。
+            // 通常のcol2rowマトリクス(charlieplexではない)。並び順は
+            // snacky.dtsi の default_transform の map と対応しています。
             bindings = <
-                &kp Q  &kp W  &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I  &kp O  &kp P
+                // row0: 数字列
+                &kp N1    &kp N2   &kp N3    &kp N4   &kp N5    &kp N6      &kp N7    &kp N8    &kp N9    &kp N0   &kp MINUS &kp EQUAL
+                // row1: QWERTY列
+                &kp Q     &kp W    &kp E     &kp R    &kp T     &kp Y       &kp U     &kp I     &kp O     &kp P    &kp LBKT  &kp RBKT
+                // row2: ホームポジション列
+                &kp A     &kp S    &kp D     &kp F    &kp G     &kp H       &kp J     &kp K     &kp L     &kp SEMI &kp SQT   &kp BSLH
+                // row3: 下段列
+                &kp Z     &kp X    &kp C     &kp V    &kp B     &kp N       &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RSHFT &kp ENTER
+                // row4: 修飾キー・スペース列
+                &kp LGUI  &kp LALT &kp LCTRL &kp LSHFT &kp SPACE &kp TAB    &kp BSPC  &kp RALT  &kp RCTRL &kp RGUI &kp ESC   &kp DEL
             >;
         };
     };
