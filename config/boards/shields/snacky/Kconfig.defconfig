@@ -1,4 +1,23 @@
-if SNACKY
+if SHIELD_SNACKY_LEFT
+
 config ZMK_KEYBOARD_NAME
-    default "Snacky Keyboard"
+    default "Snacky"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_SNACKY_LEFT || SHIELD_SNACKY_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
+
+if SHIELD_SNACKY_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Snacky"
+
 endif

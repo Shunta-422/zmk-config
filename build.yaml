@@ -20,5 +20,6 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: snacky
-    
+    shield: snacky_left
+  - board: seeeduino_xiao_ble
+    shield: snacky_right

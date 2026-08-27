@@ -1,2 +1,5 @@
-config SNACKY
-    def_bool $(shields_list_contains,snacky)
+config SHIELD_SNACKY_LEFT
+    def_bool $(shields_list_contains,snacky_left)
+
+config SHIELD_SNACKY_RIGHT
+    def_bool $(shields_list_contains,snacky_right)
