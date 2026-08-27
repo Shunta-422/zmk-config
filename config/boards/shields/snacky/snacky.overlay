@@ -5,10 +5,10 @@
         zmk,physical-layout = &physical_layout0;
     };
 
-    physiscal_layout0: physical_layout0 {
-        compatible = "zmk,physical_layout";
+    physical_layout0: physical_layout0 {
+        compatible = "zmk,physical-layout";
         display-name = "Default Layout";
-        kscan = <&Kscan0>;
+        kscan = <&kscan0>;
         transform = <&default_transform>;
     };
 
@@ -34,4 +34,4 @@
                 , <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
                 ;
     };
-}
+};

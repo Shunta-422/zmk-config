@@ -1,0 +1,16 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // ブレッドボードでの動作確認用の仮キーマップ (2行2列)
+            bindings = <
+                &kp N1 &kp N2
+                &kp N3 &kp N4
+            >;
+        };
+    };
+};
