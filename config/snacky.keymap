@@ -32,7 +32,7 @@
                 &kp LSHFT &kp Z     &kp X    &kp C     &kp V    &kp B     &kp ESC      &kp N    &kp M     &kp COMMA  &kp DOT    &kp FSLH  &kp BSLH  &kp EQUAL
                 // row4: 親指クラスタ(左5 / 右5)。SPACEはレイヤータップ化
                 // (左手親指にNUMレイヤーとMOVEレイヤーを配置)。
-                &kp LCTRL &kp LGUI  &mo MOVE &mo NUM   &kp BSPC                                           &kp SPACE  &kp ENTER  &kp RALT  &kp RGUI  &kp ESC
+                &kp LCTRL &kp LGUI  &mo MOVE &mo NUM   &kp BSPC                                           &kp SPACE  &kp ENTER  &kp RALT  &kp LBKT  &kp RBKT
             >;
         };
 
