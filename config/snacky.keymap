@@ -2,25 +2,51 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define NUM 1
+
 / {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            // 一般的な60%キーボード相当(5行 x (6+6)列 = 60キー)の仮キーマップ。
-            // 通常のcol2rowマトリクス(charlieplexではない)。並び順は
-            // snacky.dtsi の default_transform の map と対応しています。
+            // Lily58風レイアウト。row0-2は指3行x6列、row3は7列(7個目は
+            // 電気的にROW4/D10を借用)、row4は親指クラスタ5+5キー。
+            // 合計60キー。並び順はsnacky.dtsiのdefault_transformのmapと
+            // 対応しています。
+            //
+            // row0は数字ではなく記号(シフト無しで打てる、標準的な数字段の
+            // シフト面)に変更。数字自体はnum_layer(&lt NUM SPACE を長押し)
+            // で同じ位置から入力する。
+            //
+            // row3の7個目(左は末尾・右は先頭、どちらも親指クラスタ側)は
+            // 割り当て未定のプレースホルダ(&none)。決まったら差し替える。
             bindings = <
-                // row0: 数字列
-                &kp N1    &kp N2   &kp N3    &kp N4   &kp N5    &kp N6      &kp N7    &kp N8    &kp N9    &kp N0   &kp MINUS &kp EQUAL
+                // row0: 記号列(数字段のシフト面と同じ記号)
+                &kp EXCL  &kp AT   &kp HASH  &kp DLLR &kp PRCNT &kp CARET   &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR &kp UNDER &kp PLUS
                 // row1: QWERTY列
                 &kp Q     &kp W    &kp E     &kp R    &kp T     &kp Y       &kp U     &kp I     &kp O     &kp P    &kp LBKT  &kp RBKT
                 // row2: ホームポジション列
                 &kp A     &kp S    &kp D     &kp F    &kp G     &kp H       &kp J     &kp K     &kp L     &kp SEMI &kp SQT   &kp BSLH
-                // row3: 下段列
-                &kp Z     &kp X    &kp C     &kp V    &kp B     &kp N       &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RSHFT &kp ENTER
-                // row4: 修飾キー・スペース列
-                &kp LGUI  &kp LALT &kp LCTRL &kp LSHFT &kp SPACE &kp TAB    &kp BSPC  &kp RALT  &kp RCTRL &kp RGUI &kp ESC   &kp DEL
+                // row3: 下段列(7キー。左は末尾・右は先頭が追加分/未定)
+                &kp Z     &kp X    &kp C     &kp V    &kp B     &kp N    &none      &none    &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RSHFT &kp ENTER
+                // row4: 親指クラスタ(左5 / 右5)。SPACEはレイヤータップ化
+                // (タップ=Space、長押し=numレイヤー)。
+                &kp LGUI  &kp LALT &kp LCTRL &kp LSHFT &lt NUM SPACE        &kp BSPC  &kp RALT  &kp RCTRL &kp RGUI &kp ESC
+            >;
+        };
+
+        num_layer {
+            // default_layerのrow0(記号)と同じ物理位置に、対応する数字
+            // (シフトなし面)を配置。それ以外は&transで下の層を素通しする。
+            bindings = <
+                // row0: 数字段(記号の代わりに数字)
+                &kp N1    &kp N2   &kp N3    &kp N4   &kp N5    &kp N6      &kp N7    &kp N8    &kp N9    &kp N0   &kp MINUS &kp EQUAL
+                // row1-row3: 素通し(row3は7キー分)
+                &trans    &trans   &trans    &trans   &trans    &trans      &trans    &trans    &trans    &trans   &trans    &trans
+                &trans    &trans   &trans    &trans   &trans    &trans      &trans    &trans    &trans    &trans   &trans    &trans
+                &trans    &trans   &trans    &trans   &trans    &trans   &trans     &trans   &trans    &trans    &trans   &trans    &trans    &trans
+                // row4: 素通し(左5 / 右5)
+                &trans    &trans   &trans    &trans   &trans               &trans    &trans    &trans    &trans   &trans
             >;
         };
     };
