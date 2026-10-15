@@ -11,17 +11,12 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // row0-2は指3行x6列、row3は7列(7個目は
-            // 電気的にROW4/D10を借用)、row4は親指クラスタ5+5キー。
-            // 合計60キー。並び順はsnacky.dtsiのdefault_transformのmapと
-            // 対応しています。
+            // 各行6キー x 5行(row4は親指の段)。左右合わせて60キー。
+            // 並び順はsnacky.dtsiのdefault_transformのmapと対応しています。
             //
             // row0は数字ではなく記号(シフト無しで打てる、標準的な数字段の
             // シフト面)に変更。数字自体はnum_layer(&lt NUM SPACE を長押し)
             // で同じ位置から入力する。
-            //
-            // row3の7個目(左は末尾・右は先頭、どちらも親指クラスタ側)は
-            // 割り当て未定のプレースホルダ(&none)。決まったら差し替える。
             bindings = <
                 // row0: 記号列(数字段のシフト面と同じ記号)
                 &kp GRAVE &kp EXCL  &kp AT   &kp HASH  &kp DLLR &kp PRCNT                       &kp CARET &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp MINUS 
@@ -29,11 +24,10 @@
                 &kp TAB   &kp Q     &kp W    &kp E     &kp R    &kp T                           &kp Y     &kp U      &kp I      &kp O     &kp P     &kp DEL
                 // row2: ホームポジション列
                 &kp CAPS  &kp A     &kp S    &kp D     &kp F    &kp G                           &kp H     &kp J      &kp K      &kp L     &kp SEMI  &kp SQT   
-                // row3: 下段列(7キー。左は末尾・右は先頭が配線的にはrow4)    // row4,0    // row4,0
-                &kp LSHFT &kp Z     &kp X    &kp C     &kp V    &kp B     &kp ESC      &kp N    &kp M     &kp COMMA  &kp DOT    &kp FSLH  &kp BSLH  &kp EQUAL
-                // row4: 親指クラスタ(左5 / 右5)。SPACEはレイヤータップ化
-                // (左手親指にNUMレイヤーとMOVEレイヤーを配置)。
-                &kp LCTRL &kp LGUI  &mo MOVE &mo NUM   &kp BSPC                                           &kp SPACE  &kp ENTER  &kp RALT  &kp LBKT  &kp RBKT
+                // row3: 下段列
+                &kp LSHFT &kp Z     &kp X    &kp C     &kp V    &kp B                           &kp N     &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp BSLH
+                // row4: 親指の段(左6 / 右6)。左手親指にNUMレイヤーとMOVEレイヤーを配置。
+                &kp ESC   &kp LCTRL &kp LGUI &mo MOVE  &mo NUM  &kp BSPC                        &kp SPACE &kp ENTER  &kp RALT   &kp LBKT  &kp RBKT  &kp EQUAL
             >;
         };
 
@@ -49,8 +43,8 @@
                 // row1-row4: 左手側にBluetooth、右手側に電卓ライクな配置
                 &trans    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans    &kp N7    &kp N8    &kp N9   &trans      &kp FSLH
                 &trans    &bt BT_PRV &bt BT_NXT &trans &out OUT_USB &out OUT_BLE             &trans    &kp N4    &kp N5    &kp N6   &trans      &kp ASTRK
-                &trans    &bt BT_CLR &trans  &trans   &trans    &trans   &trans     &trans   &trans    &kp N1    &kp N2    &kp N3   &trans      &kp MINUS
-                &trans    &trans   &trans    &trans   &trans                                           &trans    &kp N0    &trans   &kp EQUAL   &kp PLUS
+                &trans    &bt BT_CLR &trans  &trans   &trans    &trans                       &trans    &kp N1    &kp N2    &kp N3   &trans      &kp MINUS
+                &trans    &trans   &trans    &trans   &trans    &trans                       &trans    &kp N0    &trans    &kp EQUAL &kp PLUS    &trans
             >;
         };
 
@@ -62,9 +56,9 @@
                 // row1-row3: 右手側に移動系
                 &trans    &trans   &trans    &trans   &trans    &trans                       &trans    &kp HOME    &kp UP     &kp END    &trans    &trans
                 &trans    &trans   &trans    &trans   &trans    &trans                       &trans    &kp LEFT    &kp DOWN   &kp RIGHT  &trans    &trans
-                &trans    &trans   &trans    &trans   &trans    &trans   &trans     &trans   &trans    &trans      &trans     &trans     &trans    &trans
-                // row4: 素通し(左5 / 右5)
-                &trans    &trans   &trans    &trans   &trans                                           &trans      &trans     &trans     &trans    &trans
+                &trans    &trans   &trans    &trans   &trans    &trans                       &trans    &trans      &trans     &trans     &trans    &trans
+                // row4: 素通し(左6 / 右6)
+                &trans    &trans   &trans    &trans   &trans    &trans                       &trans    &trans      &trans     &trans     &trans    &trans
             >;
         };
     };
