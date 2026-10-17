@@ -25,9 +25,9 @@
                 // row2: ホームポジション列
                 &kp CAPS  &kp A     &kp S    &kp D     &kp F    &kp G                           &kp H     &kp J      &kp K      &kp L     &kp SEMI  &kp SQT   
                 // row3: 下段列
-                &kp LSHFT &kp Z     &kp X    &kp C     &kp V    &kp B                           &kp N     &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp BSLH
+                &kp LSHFT &kp Z     &kp X    &kp C     &kp V    &kp B                           &kp EQUAL &kp N      &kp M     &kp COMMA  &kp DOT   &kp FSLH
                 // row4: 親指の段(左6 / 右6)。左手親指にNUMレイヤーとMOVEレイヤーを配置。
-                &kp ESC   &kp LCTRL &kp LGUI &mo MOVE  &mo NUM  &kp BSPC                        &kp SPACE &kp ENTER  &kp RALT   &kp LBKT  &kp RBKT  &kp EQUAL
+                &kp ESC   &kp LCTRL &kp LGUI &mo MOVE  &mo NUM  &kp SPACE                       &kp BSPC  &kp ENTER  &kp LALT  &kp LBKT  &kp RBKT  &kp BSLH
             >;
         };
 
