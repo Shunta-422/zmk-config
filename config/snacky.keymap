@@ -19,9 +19,9 @@
             // で同じ位置から入力する。
             bindings = <
                 // row0: 記号列(数字段のシフト面と同じ記号)
-                &kp GRAVE &kp EXCL  &kp AT   &kp HASH  &kp DLLR &kp PRCNT                       &kp CARET &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp MINUS 
+                &kp GRAVE &kp EXCL  &kp AT   &kp HASH  &kp DLLR &kp PRCNT                       &kp DEL   &kp CARET   &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR 
                 // row1: QWERTY列
-                &kp TAB   &kp Q     &kp W    &kp E     &kp R    &kp T                           &kp Y     &kp U      &kp I      &kp O     &kp P     &kp DEL
+                &kp TAB   &kp Q     &kp W    &kp E     &kp R    &kp T                           &kp Y     &kp U      &kp I      &kp O     &kp P     &kp MINUS
                 // row2: ホームポジション列
                 &kp CAPS  &kp A     &kp S    &kp D     &kp F    &kp G                           &kp H     &kp J      &kp K      &kp L     &kp SEMI  &kp SQT   
                 // row3: 下段列
